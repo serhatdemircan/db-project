@@ -6,7 +6,7 @@
 
 **Kullandığım veritabanı:** [x] `llm_ops`  ☐ `robot_fleet`
 
-**PR bağlantısı:** `https://github.com/` ______________________________________
+**PR bağlantısı:** `https://github.com/serhatdemircan/db-project/pull/1
 
 **Commit sayısı:** 3
 
@@ -37,6 +37,11 @@ SQL komutlarını sıfırdan yazarken ve eksik verilerin (NULL) mantığını ku
 Nasıl çözdüm:
 
 Yapay zekadan yardım alarak sorguların mantığını öğrendim; kodları terminalde tek tek çalıştırıp sonuçları ekranda görerek kontrol ettim.
+## 2.1 Sorular
+Parantez tuzağı: İşlem önceliği nedeniyle parantezli ve parantezsiz sorgularda satır sayısı değişti. Mantıksal gruplama doğru yapılmazsa yanlış filtreleme yapıyor.
+Türkçe sıralama: COLLATE kullanılmadığında Türkçe karakterler (Ş, Ç, İ gibi) alfabetik sıranın sonuna atılıyor, COLLATE ile doğru Türkçe sıralama yapılarak isimler yer değiştirdi.
+Kayıp kayıtlar: NULL (boş) değerler ne < 50 ne de >= 50 koşuluna uyduğu için arada kayboldu, sorguda filtrelenmiş oldu.
+İki ortalama: avg(coalesce(sutun, 0)) boş kayıtları sıfır kabul ederek genel ortalamaya dahil ettiği için daha dürüst bir rapor sunar; diğer düz avg() ise sadece dolu olanları baz alır.
 ---
 
 ## 3. Beklemediğim bir sonuç
